@@ -16,7 +16,7 @@ Vue.component("Preloader", Preloader);
 
 // Initialize Firebase
 firebase.initializeApp({
-  apiKey: "AIzaSyCSlWeOdjyIyanySl5NWYJ0RnhU57OGHpA",
+  apiKey: process.env.VUE_APP_FIREBASE,
   authDomain: "mini-vue-app.firebaseapp.com",
   databaseURL: "https://mini-vue-app.firebaseio.com",
   projectId: "mini-vue-app",
