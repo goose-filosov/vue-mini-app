@@ -111,7 +111,6 @@ export default {
         await this.$store.dispatch("login", formData);
         await this.$router.push("/home");
       } catch (e) {
-        console.log(e)
         if (e.code === "auth/user-not-found") {
           this.error = "Такого пользователя не существует!";
           this.email = "";
