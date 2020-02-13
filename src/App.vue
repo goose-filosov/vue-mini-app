@@ -20,13 +20,13 @@ export default {
     AuthLayout,
     MainLayout,
     IntroLayout
-  },
-  mounted() {
-    this.$vuetify.theme.dark = true;
   }
 };
 </script>
 <style lang="scss" scoped>
+  #app {
+    background: #EEEEEE;
+  }
 .component-fade-enter-active,
 .component-fade-leave-active {
   transition: opacity 0.3s ease;

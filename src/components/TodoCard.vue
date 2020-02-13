@@ -1,7 +1,7 @@
 <template>
-  <div class="todo amber lighten-3 mt-3 list-complete-item black--text">
+  <div class="todo purple lighten-3 mt-3 list-complete-item">
     <div class="todo-space d-flex justify-space-between">
-      <div class="todo-inner d-flex align-center ml-5">
+      <div class="todo-inner d-flex align-center ml-3 ml-md-5">
         <label class="toggleButton" @click.prevent="changeStatus(todo)">
           <input type="checkbox" :checked="todo.done" />
           <div>
@@ -14,7 +14,7 @@
           </div>
         </label>
         <p
-          class="my-auto title ml-3"
+          class="my-auto ml-3 white--text card-title"
           :class="{ lineThrough: todo.done }"
           v-if="!todo.change"
         >
@@ -22,29 +22,28 @@
         </p>
         <input
           type="text"
-          class="title ml-2 change-todo"
+          class="ml-2 change-todo font-italic font-weight-light"
           v-model="todo.title"
           @keyup.enter="sendEditTodo(todo)"
           @keyup.esc="returnTodoTitle(todo)"
           v-else
         />
       </div>
-      <div class="todo-action d-flex align-center mr-3">
+      <div class="todo-action d-flex align-center mr-1 mr-md-3">
         <v-btn
           fab
-          x-small
           depressed
           color="red lighten-2 white--text"
-          class="mr-2"
+          class="mr-2 todo-button"
           @click="editTodo(todo)"
         >
           <v-icon>mdi-pencil-box-multiple</v-icon>
         </v-btn>
         <v-btn
           fab
-          x-small
           depressed
           color="red lighten-2 white--text"
+          class="todo-button"
           @click="deleteTodo(todo.id)"
         >
           <v-icon>mdi-delete</v-icon>
@@ -107,17 +106,59 @@ export default {
   &-space {
     padding: 15px 0px;
   }
+  &-button {
+    width: 35px;
+    height: 35px;
+    .v-icon {
+      font-size: 20px;
+    }
+    @media (max-width: 556px) {
+      width: 30px;
+      height: 30px;
+      .v-icon {
+        font-size: 18px;
+      }
+    }
+    @media (max-width: 350px) {
+      width: 25px;
+      height: 25px;
+      .v-icon {
+        font-size: 15px;
+      }
+    }
+  }
 }
 .lineThrough {
   text-decoration: line-through;
-  color: #66bb6a;
+  color: yellowgreen !important;
 }
-
+.card-title {
+  font-size: 24px;
+  @media (max-width: 556px) {
+    font-size: 18px;
+  }
+  @media (max-width: 350px) {
+    font-size: 16px;
+    max-width: 150px;
+    overflow: hidden;
+    display: table-cell;
+  }
+}
 .change-todo {
+  font-size: 24px;
   outline: none;
   padding: 0 0 0 4px;
-  color: #ccc;
+  width: 80%;
+  background: #EEEEEE;
+  color: #000;
+  @media (max-width: 556px) {
+    font-size: 18px;
+  }
+  @media (max-width: 350px) {
+    font-size: 16px;
+  }
 }
+
 // ======== Checkbox ========
 $color: #fff;
 $doneFalse: tomato;
@@ -139,6 +180,10 @@ $doneTrue: yellowgreen;
       position: relative;
       width: 30px;
       height: 30px;
+      @media (max-width: 350px) {
+        width: 25px;
+        height: 25px;
+      }
       svg {
         fill: none;
         stroke-width: 3.6;
@@ -157,6 +202,10 @@ $doneTrue: yellowgreen;
         stroke-dashoffset: 162.6 - 38;
         stroke-dasharray: 0 162.6 133 (162.6 - 133);
         transition: all 0.4s ease 0s;
+        @media (max-width: 350px) {
+          width: 25px;
+          height: 25px;
+        }
       }
       &:before,
       &:after {

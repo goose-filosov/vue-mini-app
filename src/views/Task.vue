@@ -1,24 +1,26 @@
 <template>
   <div class="task">
-    <div class="head d-flex justify-space-between mt-6">
-      <p></p>
-      <div class="create-task">
+    <!-- Create task button-->
+    <div class="head mt-6">
+      <div class="create-task ml-auto">
         <v-btn @click="overlay = true" class="mx-2" fab dark color="indigo">
           <v-icon dark>mdi-plus</v-icon>
         </v-btn>
       </div>
     </div>
+    <!-- /Create task button-->
     <v-container class="mt-5">
       <Preloader v-if="preloader" />
-      <transition-group tag="div" class="row" name="list" v-else>
+      <v-row v-else>
         <TaskCard
           v-for="(task, i) in taskArray"
           :key="i"
           :task="task"
-          @emit-delete-task="deleteTask"
+          @emit-delete-task="deleteTaskInArray"
         />
-      </transition-group>
+      </v-row>
     </v-container>
+    <!-- Call datepicker-->
     <v-overlay :value="overlay" :opacity="opacity" class="data-overlay">
       <div class="overlay">
         <div class="text-fields">
@@ -37,15 +39,14 @@
           ></v-textarea>
         </div>
       </div>
-      <v-btn
-        color="pink"
-        @click="datePickerOverlay = true"
-        width="100%"
-        class="mt-4"
-      >
-        Выбрать дату
-      </v-btn>
-      <v-btn color="green" @click="takeData" width="100%" class="mt-4">
+        <v-btn
+          color="purple lighten-3"
+          @click="datePickerOverlay = true"
+          width="100%"
+        >
+          Выбрать дату
+        </v-btn>
+      <v-btn color="green" @click="createTask" width="100%" class="mt-4">
         Создать таску
       </v-btn>
       <v-btn color="red" @click="overlay = false" width="100%" class="mt-4">
@@ -62,6 +63,7 @@
         ></v-date-picker>
       </v-overlay>
     </v-overlay>
+    <!-- /Call datepicker-->
   </div>
 </template>
 
@@ -88,14 +90,14 @@ export default {
   computed: {
     changeDate() {
       moment.locale("ru");
-      return moment(this.picker).format("LL");
+      return moment(this.picker).format("ll");
     }
   },
   methods: {
-    deleteTask(id) {
+    deleteTaskInArray(id) {
       this.taskArray = this.taskArray.filter(t => t.id !== id);
     },
-    async takeData() {
+    async createTask() {
       if (
         this.taskTitle.trim().length > 0 &&
         this.taskDescription.trim().length > 0 &&

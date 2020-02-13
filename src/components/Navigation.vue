@@ -3,13 +3,13 @@
     <v-navigation-drawer
       v-model="drawer"
       app
-      class="amber lighten-3 white--text"
+      class="purple lighten-3"
     >
       <v-col class="d-flex align-center py-7 flex-column">
         <v-avatar size="164" color="blue lighten-6">
           <v-img src="../assets/shark.png"></v-img>
         </v-avatar>
-        <p class="mt-5 headline black--text">{{ name }}</p>
+        <p class="mt-5 headline white--text">{{ name }}</p>
       </v-col>
       <v-divider></v-divider>
       <v-list dense>
@@ -20,10 +20,10 @@
           :to="link.route"
         >
           <v-list-item-action>
-            <v-icon color="black">mdi-{{ link.icon }}</v-icon>
+            <v-icon color="white">mdi-{{ link.icon }}</v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title class="black--text">
+            <v-list-item-title class="white--text">
               {{ link.title }}
             </v-list-item-title>
           </v-list-item-content>
@@ -35,7 +35,7 @@
       <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>{{ this.$route.name }}</v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn @click="logout">Выйти</v-btn>
+      <v-btn @click="logout" color="red">Выйти</v-btn>
     </v-app-bar>
   </nav>
 </template>

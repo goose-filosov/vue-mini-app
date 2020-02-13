@@ -63,9 +63,6 @@ export default {
 .taskComplete {
   color: yellowgreen !important;
 }
-.card-border-progress {
-  border: 1px solid #ffca28;
-}
 .cardBorderComplete {
   border: 1px solid yellowgreen;
 }

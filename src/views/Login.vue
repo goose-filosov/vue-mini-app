@@ -2,14 +2,14 @@
   <v-col cols="12" sm="8" md="4" class="ml-6 ml-sm-0">
     <v-form lazy-validation>
       <v-card class="elevation-12">
-        <v-toolbar color="amber lighten-3" light flat>
+        <v-toolbar color="purple lighten-3 white--text" light flat>
           <router-link to="/" tag="span">
-            <v-icon>mdi-arrow-left-bold-box</v-icon>
+            <v-icon color="white">mdi-arrow-left-bold-box</v-icon>
           </router-link>
           <v-spacer />
           <v-toolbar-title>Войти</v-toolbar-title>
           <v-spacer />
-          <router-link to="/register">Регистрация</router-link>
+          <router-link to="/register" class="white--text">Регистрация</router-link>
         </v-toolbar>
         <v-card-text>
           <v-form>
@@ -35,7 +35,7 @@
         </v-card-text>
         <v-card-actions>
           <v-btn
-            color="amber lighten-3"
+            color="purple lighten-3 white--text"
             width="100%"
             light
             large

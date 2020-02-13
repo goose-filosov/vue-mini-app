@@ -1,14 +1,14 @@
 <template>
   <v-col cols="12" sm="8" md="4" class="ml-6 ml-sm-0">
     <v-card class="elevation-12">
-      <v-toolbar color="amber lighten-3" light flat>
+      <v-toolbar color="purple lighten-3" light flat>
         <router-link to="/" tag="span">
-          <v-icon class="link-decoration">mdi-arrow-left-bold-box</v-icon>
+          <v-icon class="link-decoration" color="white">mdi-arrow-left-bold-box</v-icon>
         </router-link>
         <v-spacer />
-        <v-toolbar-title>Регистрация</v-toolbar-title>
+        <v-toolbar-title class="white--text">Регистрация</v-toolbar-title>
         <v-spacer />
-        <router-link to="/login">Войти</router-link>
+        <router-link to="/login" class="white--text">Войти</router-link>
       </v-toolbar>
       <v-card-text>
         <v-form>
@@ -38,7 +38,7 @@
       </v-card-text>
       <v-card-actions>
         <v-btn
-          color="amber lighten-3"
+          color="purple lighten-3 white--text"
           width="100%"
           light
           large

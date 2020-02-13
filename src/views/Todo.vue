@@ -13,19 +13,19 @@
         </v-col>
         <v-col md="6" class="mt-6 mt-md-0">
           <v-row>
-            <v-col cols="8" md="5" offset-md="2">
+            <v-col cols="12" sm="8" md="5" offset-md="2">
               <v-text-field
-                label="Запишите её сюда"
+                label="Запишите задачу сюда"
                 outlined
                 v-model="title"
                 @keyup.enter="createTodo"
               ></v-text-field>
             </v-col>
-            <v-col cols="4" class="d-md-none">
+            <v-col cols="12" sm="4" class="d-md-none">
               <v-btn
                 @click="createTodo"
+                class="button-create"
                 width="100%"
-                height="65%"
                 color="green lighten-3 black--text"
                 depressed
                 >Создать</v-btn
@@ -153,6 +153,12 @@ export default {
 
 .head-title {
   font-size: 34px;
+}
+.button-create {
+  height: 100%;
+  @media (max-width: 556px) {
+    height: 40px;
+  }
 }
 
 .list-complete {

@@ -5,8 +5,6 @@ export default {
   },
   actions: {
     async fetchInfo({ dispatch, commit }) {
-      // eslint-disable-next-line no-useless-catch
-      try {
         const uid = await dispatch("getUid");
         const info = (
           await firebase
@@ -15,9 +13,6 @@ export default {
             .once("value")
         ).val();
         commit("setInfo", info);
-      } catch (e) {
-        throw e;
-      }
     }
   },
   mutations: {

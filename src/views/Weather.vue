@@ -3,9 +3,10 @@
     <v-container>
       <Preloader v-if="preloader" />
       <v-row v-else>
-        <v-col cols="12" md="4" class="mt-md-10" v-if="show">
-          <v-card max-width="344" class="mx-auto">
-            <div class="pt-4 mb-12 text-center">
+        <!--starter card-->
+        <v-col cols="12" md="4" class="mt-md-3" v-if="show">
+          <v-card max-width="344" class="mx-auto elevation-12">
+            <div class="pt-4 mb-md-12 mb-xl-4 text-center">
               <span class="headline">
                 {{ firstWeatherChild.weather.description }}
               </span>
@@ -19,17 +20,17 @@
               aspect-ratio="1.6"
               width="150px"
               height="150px"
-              class="mx-auto"
+              class="mx-auto mb-md-12"
             ></v-img>
 
-            <v-card-text class="d-flex justify-space-between mt-6">
+            <v-card-text class="d-flex justify-space-between pt-md-10 pt-xl-6">
               <div class="temperature">
-                <p class="current">
+                <p class="current black--text" id="current">
                   {{ Math.round(firstWeatherChild.temp) }} <sup>°C</sup>
                 </p>
               </div>
               <div class="details">
-                <span class="date">
+                <span class="date black--text">
                   {{
                     new Date(firstWeatherChild.datetime).toLocaleDateString(
                       "ru",
@@ -43,7 +44,7 @@
                 </span>
                 <div class="aqua mt-3">
                   <div class="d-flex justify-space-between flex-column">
-                    <div class="max-min d-flex justify-space-between mt-2">
+                    <div class="max-min d-flex justify-space-between mt-2 black--text">
                       <div class="max">
                         <v-icon>mdi-thermometer-high</v-icon>
                         {{ Math.round(firstWeatherChild.max_temp) }}
@@ -59,9 +60,11 @@
             </v-card-text>
           </v-card>
         </v-col>
-        <v-col cols="12" md="4" class="mt-md-10" v-else>
-          <v-card max-width="344" class="mx-auto">
-            <div class="pt-4 mb-12 text-center">
+        <!--/starter card-->
+        <!--clicky card-->
+        <v-col cols="12" md="4" class="mt-md-3" v-else>
+          <v-card max-width="344" class="mx-auto elevation-12">
+            <div class="pt-4 mb-md-12 mb-xl-4 text-center">
               <span class="headline">
                 {{ weatherInCard }}
               </span>
@@ -71,15 +74,15 @@
               aspect-ratio="1.6"
               width="150px"
               height="150px"
-              class="mx-auto"
+              class="mx-auto mb-md-12"
             ></v-img>
 
-            <v-card-text class="d-flex justify-space-between mt-6">
+            <v-card-text class="d-flex justify-space-between pt-md-10 pt-xl-6">
               <div class="temperature">
-                <p class="current">{{ temp }} <sup>°C</sup></p>
+                <p class="current black--text">{{ temp }} <sup>°C</sup></p>
               </div>
               <div class="details">
-                <span class="date">
+                <span class="date black--text">
                   {{
                     new Date(dateInCard).toLocaleDateString("ru", {
                       year: "numeric",
@@ -90,7 +93,7 @@
                 </span>
                 <div class="aqua mt-3">
                   <div class="d-flex justify-space-between flex-column">
-                    <div class="max-min d-flex justify-space-between mt-2">
+                    <div class="max-min d-flex justify-space-between mt-2 black--text">
                       <div class="max">
                         <v-icon>mdi-thermometer-high</v-icon>
                         {{ max_temp }}
@@ -106,10 +109,12 @@
             </v-card-text>
           </v-card>
         </v-col>
+        <!--/clicky card-->
         <v-col cols="12" md="8">
           <v-row>
             <v-col
-              cols="6"
+              cols="12"
+              sm="6"
               md="3"
               v-for="(weather, i) in weatherArray"
               :key="i"
@@ -117,10 +122,10 @@
               <v-card
                 max-width="200px"
                 class="mx-auto"
-                color="amber lighten-3"
+                color="purple lighten-3"
                 @click="logMe(weather)"
               >
-                <v-card-text class="black--text text-center">
+                <v-card-text class="white--text text-center">
                   <span class="phone-text">
                     {{
                       new Date(weather.datetime).toLocaleDateString("ru", {
@@ -142,14 +147,14 @@
                   "
                 ></v-img>
                 <v-card-text
-                  class="text-center black--text d-flex justify-space-around"
+                  class="text-center white--text d-flex justify-space-around"
                 >
                   <div class="max">
-                    <v-icon color="black">mdi-thermometer-high</v-icon>
+                    <v-icon color="red lighten-1">mdi-thermometer-high</v-icon>
                     {{ Math.round(weather.max_temp) }}
                   </div>
                   <div class="min">
-                    <v-icon color="black">mdi-thermometer-low</v-icon>
+                    <v-icon color="blue">mdi-thermometer-low</v-icon>
                     {{ Math.round(weather.min_temp) }}
                   </div>
                 </v-card-text>
@@ -251,24 +256,37 @@ export default {
 <style lang="scss" scoped>
 .weather {
   .temperature {
-    color: #fff;
+    color: #000;
     .current {
       margin-top: 20px;
       font-size: 54px;
       font-weight: bold;
       position: relative;
+      @media (max-width: 556px) {
+        font-size: 36px;
+      }
+      @media (max-width: 350px) {
+        font-size: 26px;
+      }
       &::before {
         content: "";
         position: absolute;
         width: 27px;
         height: 7px;
-        background: #fff;
+        background: #000;
         top: -25px;
         left: 0;
       }
       sup {
         font-size: 24px;
         margin-left: -10px;
+        @media (max-width: 556px) {
+          font-size: 16px;
+        }
+        @media (max-width: 350px) {
+          font-size: 12px;
+          margin-left: 0;
+        }
       }
     }
     .max-min {
@@ -287,12 +305,15 @@ export default {
       font-weight: bold;
       padding-bottom: 8px;
       margin-bottom: 8px;
+      @media (max-width: 350px) {
+        font-size: 14px;
+      }
 
       &::after {
         content: "";
         height: 2px;
         width: 100%;
-        background: #fff;
+        background: #000;
         position: absolute;
         bottom: 3px;
         left: 0;
@@ -306,9 +327,7 @@ export default {
   font-weight: bold;
 
   @media (max-width: 556px) {
-    .phone-text {
-      font-size: 14px;
-    }
+      font-size: 16px;
   }
 }
 </style>
