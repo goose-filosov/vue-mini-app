@@ -24,9 +24,9 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-  #app {
-    background: #EEEEEE;
-  }
+#app {
+  background: #eeeeee;
+}
 .component-fade-enter-active,
 .component-fade-leave-active {
   transition: opacity 0.3s ease;

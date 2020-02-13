@@ -1,10 +1,6 @@
 <template>
   <nav>
-    <v-navigation-drawer
-      v-model="drawer"
-      app
-      class="purple lighten-3"
-    >
+    <v-navigation-drawer v-model="drawer" app class="purple lighten-3">
       <v-col class="d-flex align-center py-7 flex-column">
         <v-avatar size="164" color="blue lighten-6">
           <v-img src="../assets/shark.png"></v-img>

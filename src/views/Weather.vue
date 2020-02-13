@@ -44,7 +44,9 @@
                 </span>
                 <div class="aqua mt-3">
                   <div class="d-flex justify-space-between flex-column">
-                    <div class="max-min d-flex justify-space-between mt-2 black--text">
+                    <div
+                      class="max-min d-flex justify-space-between mt-2 black--text"
+                    >
                       <div class="max">
                         <v-icon>mdi-thermometer-high</v-icon>
                         {{ Math.round(firstWeatherChild.max_temp) }}
@@ -93,7 +95,9 @@
                 </span>
                 <div class="aqua mt-3">
                   <div class="d-flex justify-space-between flex-column">
-                    <div class="max-min d-flex justify-space-between mt-2 black--text">
+                    <div
+                      class="max-min d-flex justify-space-between mt-2 black--text"
+                    >
                       <div class="max">
                         <v-icon>mdi-thermometer-high</v-icon>
                         {{ max_temp }}
@@ -327,7 +331,7 @@ export default {
   font-weight: bold;
 
   @media (max-width: 556px) {
-      font-size: 16px;
+    font-size: 16px;
   }
 }
 </style>

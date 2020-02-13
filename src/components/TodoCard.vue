@@ -149,7 +149,7 @@ export default {
   outline: none;
   padding: 0 0 0 4px;
   width: 80%;
-  background: #EEEEEE;
+  background: #eeeeee;
   color: #000;
   @media (max-width: 556px) {
     font-size: 18px;

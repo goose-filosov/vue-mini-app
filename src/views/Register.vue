@@ -3,7 +3,9 @@
     <v-card class="elevation-12">
       <v-toolbar color="purple lighten-3" light flat>
         <router-link to="/" tag="span">
-          <v-icon class="link-decoration" color="white">mdi-arrow-left-bold-box</v-icon>
+          <v-icon class="link-decoration" color="white"
+            >mdi-arrow-left-bold-box</v-icon
+          >
         </router-link>
         <v-spacer />
         <v-toolbar-title class="white--text">Регистрация</v-toolbar-title>

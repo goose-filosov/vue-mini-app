@@ -9,7 +9,9 @@
           <v-spacer />
           <v-toolbar-title>Войти</v-toolbar-title>
           <v-spacer />
-          <router-link to="/register" class="white--text">Регистрация</router-link>
+          <router-link to="/register" class="white--text"
+            >Регистрация</router-link
+          >
         </v-toolbar>
         <v-card-text>
           <v-form>

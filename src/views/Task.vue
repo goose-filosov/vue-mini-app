@@ -39,13 +39,13 @@
           ></v-textarea>
         </div>
       </div>
-        <v-btn
-          color="purple lighten-3"
-          @click="datePickerOverlay = true"
-          width="100%"
-        >
-          Выбрать дату
-        </v-btn>
+      <v-btn
+        color="purple lighten-3"
+        @click="datePickerOverlay = true"
+        width="100%"
+      >
+        Выбрать дату
+      </v-btn>
       <v-btn color="green" @click="createTask" width="100%" class="mt-4">
         Создать таску
       </v-btn>
