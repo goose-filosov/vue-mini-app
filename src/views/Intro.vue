@@ -16,7 +16,7 @@
           </p>
           <p>
             <v-icon class="mr-2">mdi-check-circle-outline</v-icon
-            ><span>Создавайте задачи с выбором даты и дедлайна</span>
+            ><span>Создавайте задачи с датой выполнения</span>
           </p>
         </div>
         <div class="actions">

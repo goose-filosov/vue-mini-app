@@ -1,16 +1,17 @@
 <template>
   <v-col cols="12" md="4">
     <v-card
-      class="card-border-progress"
+            @click="changeTaskStatus(task)"
+            class="card-border-progress"
       :class="{ cardBorderComplete: task.status === 'выполнено' }"
       :ripple="false"
     >
       <v-card-title>
         {{ task.title }}
         <v-spacer></v-spacer>
-        <v-icon color="red" @click="deleteTask(task.id)"
-          >mdi-close-circle</v-icon
-        >
+        <v-btn  @click.stop="deleteTask(task.id)" color="red">
+          <v-icon color="white">mdi-close</v-icon>
+        </v-btn>
       </v-card-title>
       <v-divider></v-divider>
       <v-card-text>{{ task.description }}</v-card-text>
@@ -19,8 +20,7 @@
         <span class="ml-2">{{ task.date }}</span>
         <v-spacer></v-spacer>
         <span
-          @click="changeTaskStatus(task)"
-          class="amber--text lighten-3 mr-2 pointer"
+          class="amber--text lighten-3 mr-2"
           :class="{ taskComplete: task.status === 'выполнено' }"
           >{{ task.status }}</span
         >
@@ -63,10 +63,10 @@ export default {
 .taskComplete {
   color: yellowgreen !important;
 }
-.cardBorderComplete {
-  border: 1px solid yellowgreen;
+.card-border-progress {
+  border: 3px solid #FBC108;
 }
-.pointer {
-  cursor: pointer;
+.cardBorderComplete {
+  border: 3px solid yellowgreen;
 }
 </style>

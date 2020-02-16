@@ -139,8 +139,3 @@ export default {
 };
 </script>
 
-<style scoped>
-.link-decoration {
-  text-decoration: none;
-}
-</style>
